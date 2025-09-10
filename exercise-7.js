@@ -1,3 +1,3 @@
-function mult(x, y) {
+function findProduct(x, y) {
   return x * y;
 }
