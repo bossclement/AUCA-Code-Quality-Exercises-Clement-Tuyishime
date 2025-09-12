@@ -9,6 +9,7 @@ function depth(array) {
       size += depth(array[i]);
     }
   }
+
   return size;
 }
 
