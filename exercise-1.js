@@ -19,4 +19,9 @@ function depthOfNestedArray(array) {
   return sizeOfDepth + 1;
 }
 
-console.log(depthOfNestedArray([1, [1, 2, [1, [2, 5, [4, 7]], [5]]]]));
+function flattenArray(array, depth) {
+  return array.flat(depth);
+}
+
+const array = [1, [1, 2, [1, [2, 5, [4, 7]], [5]]]];
+console.log(flattenArray(array, depthOfNestedArray(array)));
