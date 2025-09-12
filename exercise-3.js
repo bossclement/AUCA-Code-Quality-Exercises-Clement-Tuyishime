@@ -1,5 +1,4 @@
 function sum(array) {
-  // safety check
   if (!Array.isArray(array) || !array.length) {
     return 0;
   }

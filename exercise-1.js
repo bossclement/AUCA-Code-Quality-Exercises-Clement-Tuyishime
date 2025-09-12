@@ -1,16 +1,22 @@
-function depth(array) {
+function depthOfNestedArray(array) {
   if (!Array.isArray(array)) {
     return 0;
   }
 
-  let size = 1;
+  const isArrayNested = (arrayObj) => {
+    return arrayObj.some((element) => Array.isArray(element));
+  };
+
+  let sizeOfDepth = 1;
   for (let i = 0; i < array.length; i++) {
-    if (Array.isArray(array[i])) {
-      size += depth(array[i]);
+    if (Array.isArray(array[i]) && isArrayNested(array[i])) {
+      const newDepth = depthOfNestedArray(array[i]);
+
+      if (newDepth > sizeOfDepth) sizeOfDepth = newDepth;
     }
   }
 
-  return size;
+  return sizeOfDepth + 1;
 }
 
-console.log(depth([1, [1, 2, [1, [2], [5]]]]));
+console.log(depthOfNestedArray([1, [1, 2, [1, [2, 5, [4, 7]], [5]]]]));
